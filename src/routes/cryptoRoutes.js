@@ -16,8 +16,9 @@ router.get('/home', async (req, res) => {
 
 
 router.get('/api/cryptos', cryptoController.sendAllCryptos);
-
-  
-router.get('/update', cryptoController.updateCryptos);
+router.get('/update', cryptoController.getFromTheApi);
+router.post('/create', cryptoController.createCrypto);
+router.put('/update/:id', cryptoController.updateCrypto);
+router.delete('/delete/:id', cryptoController.deleteCrypto);
 
 module.exports = router;

@@ -5,11 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="/script/getAll.js"></script>    
-    <title>Test</title>
+    <title>CryptoTracker | Home</title>
 </head>
 <body>
     <h1>Liste des cryptomonnaies</h1>
     <div id="loading-message">Chargement des cryptomonnaies...</div>
-    <ul id="crypto-list"></ul>
+    <table id="crypto-table">
+        <thead>
+          <tr>
+            <th>Crypto</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="crypto-list">
+          <!-- Les lignes du tableau seront générées dynamiquement -->
+        </tbody>
+      </table>
+      <button id="create-crypto">Créer</button>      
 </body>
 </html>

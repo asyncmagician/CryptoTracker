@@ -1,7 +1,7 @@
 const Crypto = require('../models/Crypto.js');
 const fetchCoinGeckoData = require('../util/fetchCoinGeckoData.js');
 
-exports.updateCryptos = async (req, res) => {
+exports.getFromTheApi = async (req, res) => {
   try {
     const cryptos = await fetchCoinGeckoData();
   
@@ -11,7 +11,7 @@ exports.updateCryptos = async (req, res) => {
     // On ajoute les cryptos à la base de données
     await Crypto.insertMany(cryptos);
   
-    res.send('Les cryptomonnaies ont étaient mises à jour');
+    res.send('Les cryptomonnaies ont étaient mises à jour et insérer en base de données');
     res.status(200);
   } catch (error) {
     res.send('Erreur lors de la récupération des données CoinGecko');
@@ -38,6 +38,19 @@ exports.sendAllCryptos = async (req, res) => {
       res.status(500).send('Erreur lors de la récupération des cryptomonnaies');
     }
   };
+
+exports.createCrypto = async (req, res) => {
+  // ... A faire
+};
+
+exports.updateCrypto = async (req, res) => {
+  // ... A faire
+};
+
+exports.deleteCrypto = async (req, res) => {
+  // ... A faire
+};
+
   
 
 
