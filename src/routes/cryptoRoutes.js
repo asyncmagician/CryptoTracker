@@ -25,7 +25,8 @@ router.get('/update', (req, res) => {
 router.get('/api/cryptos', cryptoController.sendAllCryptos);
 router.post('/api/create', cryptoController.createCrypto);
 router.get('/api/update', cryptoController.getFromTheApi);
-router.get('/update/:id', cryptoController.updateCrypto);
+router.get('/api/cryptos/:id', cryptoController.getCryptoById);
 router.delete('/api/delete/:id', cryptoController.deleteCrypto);
+router.put('/update/:id', cryptoController.updateCrypto);
 
 module.exports = router;

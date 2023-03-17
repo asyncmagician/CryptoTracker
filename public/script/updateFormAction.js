@@ -24,7 +24,7 @@ form.addEventListener('submit', event => {
   const marketCap = document.querySelector('#marketCap').value;
   const price = document.querySelector('#price').value;
 
-  fetch(`/api/cryptos/${cryptoId}`, {
+  fetch(`/update/${cryptoId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -35,15 +35,14 @@ form.addEventListener('submit', event => {
       marketCap,
       price,
     }),
-        }).then(response => {
-            if (response.ok) {
-                window.location.href = '/home';
-            } else {
-                throw new Error();
-            }
-        }).catch(error => {
-            console.error(error);
-                alert('An error occurred while updating the cryptocurrency');
-        });
-    });
-     
+  }).then(response => {
+    if (response.ok) {
+      window.location.href = '/home';
+    } else {
+      throw new Error();
+    }
+  }).catch(error => {
+    console.error(error);
+    alert('An error occurred while updating the cryptocurrency');
+  });
+});

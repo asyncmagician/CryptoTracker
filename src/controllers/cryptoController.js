@@ -82,21 +82,37 @@ exports.sendAllCryptos = async (req, res) => {
       res.status(500).send('Error while updating the cryptocurrency');
     }
   };
-  
-exports.deleteCrypto = async (req, res) => {
-  try {
-    const cryptoId = req.params.id;
-    const deletedCrypto = await Crypto.findByIdAndDelete(cryptoId);
-    if (deletedCrypto) {
-      res.status(200).send(`The cryptocurrency ${deletedCrypto.name} has been deleted successfully`);
-    } else {
-      res.status(404).send(`Cryptocurrency with id ${cryptoId} not found`);
+
+  exports.getCryptoById = async (req, res) => {
+    try {
+      const cryptoId = req.params.id;
+      const crypto = await Crypto.findById(cryptoId);
+      if (crypto) {
+        res.status(200).json(crypto);
+      } else {
+        res.status(404).send(`Cryptocurrency with id ${cryptoId} not found`);
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error while loading the cryptocurrency');
     }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error while deleting the cryptocurrency');
-  }
-};
+  };
+  
+
+  exports.deleteCrypto = async (req, res) => {
+    try {
+      const cryptoId = req.params.id;
+      const deletedCrypto = await Crypto.findByIdAndDelete(cryptoId);
+      if (deletedCrypto) {
+        res.status(200).send(`The cryptocurrency ${deletedCrypto.name} has been deleted successfully`);
+      } else {
+        res.status(404).send(`Cryptocurrency with id ${cryptoId} not found`);
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error while deleting the cryptocurrency');
+    }
+  };
 
   
 
