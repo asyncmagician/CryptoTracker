@@ -18,13 +18,27 @@ exports.updateCryptos = async (req, res) => {
     res.status(500);
   }
 };
-
-exports.getAllCryptos = async (req, res) => {
+  
+  exports.getAllCryptos = async () => {
     try {
       const cryptos = await Crypto.find({});
-      res.json(cryptos);
+      return cryptos;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Erreur lors de la récupération des cryptomonnaies');
+    }
+  };  
+
+exports.sendAllCryptos = async (req, res) => {
+    try {
+      const cryptos = await Crypto.find({});
+      res.status(200).json(cryptos);
     } catch (error) {
       console.error(error);
       res.status(500).send('Erreur lors de la récupération des cryptomonnaies');
     }
   };
+  
+
+
+

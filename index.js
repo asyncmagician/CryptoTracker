@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config.js');
+const serveStatic = require('serve-static');
 const indexRoutes = require('./src/routes/indexRoutes.js');
 const cryptoRoutes = require('./src/routes/cryptoRoutes.js');
 
