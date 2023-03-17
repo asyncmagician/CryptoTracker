@@ -51,13 +51,14 @@ exports.sendAllCryptos = async (req, res) => {
   
       await newCrypto.save();
       
-      res.status(200).send('The cryptocurrency has been added successfully');
+      res.status(200);
       res.redirect('/home');
     } catch (error) {
       console.error(error);
       res.status(500).send("Error while creating the cryptocurrency");
     }
   };
+  
   
 exports.updateCrypto = async (req, res) => {
   // ... A faire
