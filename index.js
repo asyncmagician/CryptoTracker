@@ -1,8 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config.js');
-const https = require('https');
-const Crypto = require('./src/models/Crypto.js');
+const indexRoutes = require('./src/routes/indexRoutes.js');
 
 // On lances notre serveur express qui sert le port 3000
 const app = express();
@@ -25,22 +24,10 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-app.use(express.static('public'));
+// On définis nos routes
+app.use(indexRoutes);
 
-  app.get('/update-cryptos', async (req, res) => {
-    try {
-      const cryptos = await fetchCoinGeckoData();
-  
-      // Supprimez toutes les cryptos existantes
-      await Crypto.deleteMany({});
-  
-      // Ajoutez les nouvelles cryptos à la base de données
-      await Crypto.insertMany(cryptos);
-  
-      res.send('Cryptomonnaies mises à jour');
-    } catch (error) {
-      res.status(500).send('Erreur lors de la récupération des données CoinGecko');
-    }
-  });
+// On sert les fichiers statiques
+app.use(express.static('public'));
   
   
