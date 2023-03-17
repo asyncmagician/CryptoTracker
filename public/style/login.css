@@ -1,83 +1,66 @@
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
+.form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  margin-left: 1rem;
+  width: 50%;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #000000;
+  margin-right: 1rem;
+  width: 50%;
+  text-align: center;
+}
+
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #292828;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #281120;
+}
+
+@media (max-width: 600px) {
   h1 {
     font-size: 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
   }
   
-  form {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.2rem;
-    font-size: 1rem;
-  }
-  
-  button[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 0.8rem;
-    margin-top: 10px;
-    border-radius: 0.2rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-  
-/* Ajouter de l'espace entre le titre et le formulaire */
-h1 {
-    margin-bottom: 1rem;
-  }
-  
-  /* Centrer le formulaire */
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Ajouter de l'espace entre les champs */
-  label,
-  input {
-    margin: 0.5rem 0;
-  }
-  
-  /* Ajuster la largeur du formulaire */
   form {
     width: 80%;
-    max-width: 400px;
+    right: 10%;
   }
-  
-  /* Rendre le formulaire responsive */
-  @media (max-width: 600px) {
-    form {
-      width: 100%;
-      padding: 0 1rem;
-    }
-  }
-  
+}

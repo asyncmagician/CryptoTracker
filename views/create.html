@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="/script/createFormAction.js"></script>
-  <link rel="stylesheet" href="/style/login.css">
+  <link rel="stylesheet" href="/style/main.css">
+  <link rel="stylesheet" href="/style/create.css">
   <title>CryptoTracker | Create</title>
 </head>
 <body>
-  <h1>Create a new cryptocurrency</h1>
+  <div class="container">
+    <h1>CREATE!</h1>
+    <div class="form-container">
   <form id="create-crypto-form" method="POST" action="/api/create">
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required>
@@ -20,5 +23,7 @@
 
     <button type="submit">Create</button>
   </form>
+  </div>
+  </div>
   </body>
   </html>
