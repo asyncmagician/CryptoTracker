@@ -21,7 +21,7 @@ node index.js
 ``` 
 The app should now be running at http://localhost:3000
 
-### Remove the cryptocurrencies
+### Fetch the cryptocurrencies to the database
 
 Navigate to http://localhost/api/cryptos
 
