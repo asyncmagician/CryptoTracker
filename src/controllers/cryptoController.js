@@ -11,10 +11,10 @@ exports.getFromTheApi = async (req, res) => {
     // On ajoute les cryptos à la base de données
     await Crypto.insertMany(cryptos);
   
-    res.send('Les cryptomonnaies ont étaient mises à jour et insérer en base de données');
+    res.send('Cryptocurrencies has been successfully added to the database.');
     res.status(200);
   } catch (error) {
-    res.send('Erreur lors de la récupération des données CoinGecko');
+    res.send('Error while fetching data from CoinGecko API');
     res.status(500);
   }
 };
@@ -25,7 +25,7 @@ exports.getFromTheApi = async (req, res) => {
       return cryptos;
     } catch (error) {
       console.error(error);
-      throw new Error('Erreur lors de la récupération des cryptomonnaies');
+      throw new Error('Error while loading the cryptocurrencies');
     }
   };  
 
@@ -35,14 +35,30 @@ exports.sendAllCryptos = async (req, res) => {
       res.status(200).json(cryptos);
     } catch (error) {
       console.error(error);
-      res.status(500).send('Erreur lors de la récupération des cryptomonnaies');
+      res.status(500).send('Error while loading the cryptocurrencies');
     }
   };
 
-exports.createCrypto = async (req, res) => {
-  // ... A faire
-};
-
+  exports.createCrypto = async (req, res) => {
+    try {
+      const { name, symbol, rank } = req.body;
+  
+      const newCrypto = new Crypto({
+        name,
+        symbol,
+        rank,
+      });
+  
+      await newCrypto.save();
+      
+      res.status(200).send('The cryptocurrency has been added successfully');
+      res.redirect('/home');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error while creating the cryptocurrency");
+    }
+  };
+  
 exports.updateCrypto = async (req, res) => {
   // ... A faire
 };

@@ -14,10 +14,14 @@ router.get('/home', async (req, res) => {
     }
   });
 
+  router.get('/create', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'views', 'create.html'));
+});
+
 
 router.get('/api/cryptos', cryptoController.sendAllCryptos);
 router.get('/update', cryptoController.getFromTheApi);
-router.post('/create', cryptoController.createCrypto);
+router.post('/api/create', cryptoController.createCrypto);
 router.put('/update/:id', cryptoController.updateCrypto);
 router.delete('/delete/:id', cryptoController.deleteCrypto);
 

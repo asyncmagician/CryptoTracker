@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     cryptoList.appendChild(tr);
   });
 
-  const createButton = document.getElementById('create-crypto');
+  const createButton = document.querySelector('#create-crypto');
   createButton.addEventListener('click', () => {
-    // .... A faire
+    window.location.href = '/create';
   });
+  
 });

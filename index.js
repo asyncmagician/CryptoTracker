@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config.js');
-const serveStatic = require('serve-static');
+const multer = require('multer');
 const indexRoutes = require('./src/routes/indexRoutes.js');
 const cryptoRoutes = require('./src/routes/cryptoRoutes.js');
 
 // On lances notre serveur express qui sert le port 3000
 const app = express();
+const upload = multer();
 const port = 3000;
 
 // On récupère les identifiants de connexion à la base de données et on vérifie l'état de connexion
@@ -27,6 +28,8 @@ app.listen(port, () => {
 });
 
 // On sert les fichiers statiques
+app.use(express.urlencoded({ extended: true }));
+app.use(upload.array());
 app.use(express.static('public'));
 
 // On définis nos routes

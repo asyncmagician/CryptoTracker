@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoTracker | Create</title>
+</head>
+<body>
+  <h1>Create a new cryptocurrency</h1>
+  <form id="create-crypto-form" method="POST" action="/api/create">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+    <label for="symbol">Symbol</label>
+    <input type="text" id="symbol" name="symbol" required>
+    <br>
+
+    <label for="marketCap">Market Cap</label>
+    <input type="number" id="marketCap" name="marketCap" required>
+    <br>
+
+    <label for="price">Price ($)</label>
+    <input type="number" step="0.01" id="price" name="price" required>
+    <br>
+
+    <button type="submit">Create</button>
+  </form>
