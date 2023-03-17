@@ -9,7 +9,7 @@ To get started with CryptoTracker, follow these steps:
 ### Clone the repository
 
 ```
-git clone https://github.com/your-username/CryptoTracker.git
+git clone https://github.com/csswasthebestcs/CryptoTracker.git
 ```
 
 ### Install dependencies
