@@ -24,10 +24,11 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
+// On sert les fichiers statiques
+app.use(express.static('public'));
+
 // On définis nos routes
 app.use(indexRoutes);
 
-// On sert les fichiers statiques
-app.use(express.static('public'));
   
   
