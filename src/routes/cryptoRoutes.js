@@ -18,11 +18,14 @@ router.get('/home', async (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'views', 'create.html'));
 });
 
+router.get('/update', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'views', 'update.html'));
+});
 
 router.get('/api/cryptos', cryptoController.sendAllCryptos);
-router.get('/update', cryptoController.getFromTheApi);
 router.post('/api/create', cryptoController.createCrypto);
-router.put('/update/:id', cryptoController.updateCrypto);
-router.delete('/delete/:id', cryptoController.deleteCrypto);
+router.get('/api/update', cryptoController.getFromTheApi);
+router.get('/update/:id', cryptoController.updateCrypto);
+router.delete('/api/delete/:id', cryptoController.deleteCrypto);
 
 module.exports = router;

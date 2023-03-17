@@ -2,17 +2,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loadingMessage = document.querySelector('#loading-message');
   const cryptoList = document.querySelector('#crypto-list');
 
-  // Tant que ça charge, on affiche le message de chargement
   loadingMessage.style.display = 'block';
 
-  // On récupère les données de notre propre api généré depuis la BDD
   const response = await fetch('/api/cryptos');
   const cryptos = await response.json();
 
 
   loadingMessage.style.display = 'none';
 
-  // On créer chaque ligne du tableau pour chacune des données que l'on récupères
   cryptos.forEach((crypto) => {
     const tr = document.createElement('tr');
 
@@ -23,17 +20,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tdActions = document.createElement('td');
 
     const editButton = document.createElement('button');
-    editButton.textContent = 'Modifier';
+    editButton.textContent = 'Edit';
     editButton.addEventListener('click', () => {
-      // .... A faire
+      window.location.href = `/update?id=${crypto._id}`;
     });
     tdActions.appendChild(editButton);
+    
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Supprimer';
+    deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
-      // .... A faire
+      const confirmed = confirm('If you press OK, the cryptocurrency will be deleted forever.');
+      if (confirmed) {
+        fetch(`/api/delete/${crypto._id}`, {
+          method: 'DELETE',
+        }).then(response => {
+          if (response.ok) {
+            tr.remove();
+          } else {
+            throw new Error();
+          }
+        }).catch(error => {
+          console.error(error);
+          alert('An error appeared while deleting the cryptocurrency');
+        });
+      }
     });
+    
+
     tdActions.appendChild(deleteButton);
 
     tr.appendChild(tdActions);
@@ -44,5 +58,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   createButton.addEventListener('click', () => {
     window.location.href = '/create';
   });
-  
 });

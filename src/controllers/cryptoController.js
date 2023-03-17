@@ -60,12 +60,42 @@ exports.sendAllCryptos = async (req, res) => {
   };
   
   
-exports.updateCrypto = async (req, res) => {
-  // ... A faire
-};
-
+  exports.updateCrypto = async (req, res) => {
+    try {
+      const cryptoId = req.params.id;
+      const { name, symbol, marketCap, price } = req.body;
+  
+      const updatedCrypto = await Crypto.findByIdAndUpdate(cryptoId, {
+        name,
+        symbol,
+        marketCap,
+        price,
+      });
+  
+      if (updatedCrypto) {
+        res.status(200).send(`The cryptocurrency ${updatedCrypto.name} has been updated successfully`);
+      } else {
+        res.status(404).send(`Cryptocurrency with id ${cryptoId} not found`);
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error while updating the cryptocurrency');
+    }
+  };
+  
 exports.deleteCrypto = async (req, res) => {
-  // ... A faire
+  try {
+    const cryptoId = req.params.id;
+    const deletedCrypto = await Crypto.findByIdAndDelete(cryptoId);
+    if (deletedCrypto) {
+      res.status(200).send(`The cryptocurrency ${deletedCrypto.name} has been deleted successfully`);
+    } else {
+      res.status(404).send(`Cryptocurrency with id ${cryptoId} not found`);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error while deleting the cryptocurrency');
+  }
 };
 
   
