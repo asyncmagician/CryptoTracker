@@ -10,7 +10,7 @@ router.get('/home', async (req, res) => {
       res.sendFile(path.join(__dirname, '..', '..', 'views', 'read.html'), { cryptos: cryptos });
     } catch (error) {
       console.error(error);
-      res.status(500).send('Erreur lors de la récupération des cryptomonnaies');
+      res.status(500).send('Error while retrieving the datas from the database');
     }
   });
 
