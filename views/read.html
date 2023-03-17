@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="/script/tableActionListener.js"></script>    
+    <script defer src="/script/tableActionListener.js"></script> 
+    <link rel="stylesheet" href="/style/main.css">  
+    <link rel="stylesheet" href="/style/home.css">  
     <title>CryptoTracker | Home</title>
 </head>
 <body>
     <h1>Liste des cryptomonnaies</h1>
-    <div id="loading-message">Chargement des cryptomonnaies...</div>
+    <div id="loading-message">
+      <div class="spinner"></div>
+    </div>
     <table id="crypto-table">
-      <button id="create-crypto">Créer</button>      
+      <button id="create-crypto" class="hidden button-create">Create</button>   
       <thead>
           <tr>
             <th>Crypto</th>

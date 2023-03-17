@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const loadingMessage = document.querySelector('#loading-message');
   const cryptoList = document.querySelector('#crypto-list');
+  const createButton = document.querySelector('#create-crypto');
 
   loadingMessage.style.display = 'block';
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const tdActions = document.createElement('td');
 
     const editButton = document.createElement('button');
+    editButton.classList.add('button-update');
     editButton.textContent = 'Edit';
     editButton.addEventListener('click', () => {
       window.location.href = `/update?id=${crypto._id}`;
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
 
     const deleteButton = document.createElement('button');
+    deleteButton.classList.add('button-delete');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
       const confirmed = confirm('If you press OK, the cryptocurrency will be deleted forever.');
@@ -49,12 +52,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     
 
     tdActions.appendChild(deleteButton);
+    
 
     tr.appendChild(tdActions);
     cryptoList.appendChild(tr);
   });
 
-  const createButton = document.querySelector('#create-crypto');
+  createButton.classList.remove('hidden');
   createButton.addEventListener('click', () => {
     window.location.href = '/create';
   });

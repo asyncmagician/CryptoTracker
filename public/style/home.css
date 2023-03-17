@@ -1,0 +1,107 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #000000;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  .button-update,
+  .button-delete,
+  .button-create {
+    background-color: #292828;
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button {
+    margin-right: 10px; /* Ajouter une marge droite de 10px */
+  }
+  
+  button:last-child {
+    margin-right: 0; /* Supprimer la marge droite pour le dernier bouton */
+  }
+  
+  #loading-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #8c4caf;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  .button-update:hover {
+    background-color: #ffa500;
+  }
+  
+  .button-delete:hover {
+    background-color: #f44336;
+  }
+  
+  .button-create {
+    margin-bottom: 15px;
+  }
+
+  .button-create:hover {
+    background-color: #3e8e41;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+
+  .hidden {
+    display: none;
+  }
+  
+  
+  
+  @media (max-width: 600px) {
+    table {
+      font-size: 0.8rem;
+    }
+    
+    th, td {
+      padding: 0.2rem;
+    }
+  }
+  

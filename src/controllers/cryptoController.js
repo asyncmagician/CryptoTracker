@@ -63,15 +63,13 @@ exports.sendAllCryptos = async (req, res) => {
   exports.updateCrypto = async (req, res) => {
     try {
       const cryptoId = req.params.id;
-      const { name, symbol, marketCap, price } = req.body;
+      const { name, symbol } = req.body;
   
       const updatedCrypto = await Crypto.findByIdAndUpdate(cryptoId, {
         name,
         symbol,
-        marketCap,
-        price,
       });
-  
+
       if (updatedCrypto) {
         res.status(200).send(`The cryptocurrency ${updatedCrypto.name} has been updated successfully`);
       } else {
