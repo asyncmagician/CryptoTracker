@@ -4,6 +4,7 @@ const config = require('./config.js');
 const multer = require('multer');
 const indexRoutes = require('./src/routes/indexRoutes.js');
 const cryptoRoutes = require('./src/routes/cryptoRoutes.js');
+const authRoutes = require('./src/routes/authRoutes.js');
 
 // On lances notre serveur express qui sert le port 3000
 const app = express();
@@ -35,6 +36,7 @@ app.use(express.static('public'));
 // On définis nos routes
 app.use(indexRoutes);
 app.use(cryptoRoutes);
+app.use(authRoutes);
 
   
   
