@@ -22,35 +22,47 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
-        return response.json();
+        return response.text(); // on récupère le corps de la réponse comme une chaîne de caractères
       })
       .then(data => {
+        console.log(data);
         // Vérifier si la réponse contient un token valide
-        if (data.token) {
-          // Stockez le token dans le local storage du navigateur du client
-          localStorage.setItem('token', data.token);
-      
-          // Redirigez l'utilisateur vers la page d'accueil ou la page de tableau de bord
-          window.location.href = '/home';
-        } else {
+        try {
+          const parsedData = JSON.parse(data); // on tente de parser la réponse en JSON
+          if (parsedData.token) {
+            console.log(parsedData.token);
+            // Stockez le token dans le local storage du navigateur du client
+            localStorage.setItem('token', parsedData.token);
+        
+            // Redirigez l'utilisateur vers la page d'accueil ou la page de tableau de bord
+            window.location.href = '/home';
+          } else {
+            const errorDiv = document.querySelector('#error');
+            if (errorDiv) {
+              errorDiv.innerHTML = 'The login is invalid.';
+              errorDiv.classList.add('alert', 'alert-danger');
+            }            
+          }
+        } catch (error) {
+          console.error(error);
           const errorDiv = document.querySelector('#error');
           if (errorDiv) {
             errorDiv.innerHTML = 'The login is invalid.';
             errorDiv.classList.add('alert', 'alert-danger');
-          }            
+          }     
         }
       })
       .catch(error => {
+        console.error(error);
         const errorDiv = document.querySelector('#error');
         if (errorDiv) {
           errorDiv.innerHTML = 'The login is invalid.';
           errorDiv.classList.add('alert', 'alert-danger');
         }
-        console.error(error);      
       });
-    });      
-  }})
-
+    }); 
+  }
+}); 
   const urlParams = new URLSearchParams(window.location.search);
   const success = urlParams.get('success');
   if (success === '1') {
@@ -65,4 +77,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ajoutez la div au messageDiv
     messageDiv.appendChild(successDiv);
   }
-  

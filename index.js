@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config.js');
 const multer = require('multer');
+const session = require('express-session');
+const crypto = require('crypto');
+
 const indexRoutes = require('./src/routes/indexRoutes.js');
 const cryptoRoutes = require('./src/routes/cryptoRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js');
@@ -27,6 +30,18 @@ mongoose.connect(config.mongoDB, {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+const key = crypto.randomBytes(32).toString('hex');
+app.use(session({
+  secret: key,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: true,
+    sameSite: 'none'
+  }
+}));
+
 
 // On sert les fichiers statiques
 app.use(express.urlencoded({ extended: true }));

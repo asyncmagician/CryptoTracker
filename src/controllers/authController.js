@@ -26,12 +26,17 @@ exports.login = async (req, res) => {
     // Si tout est OK, on retourne un token d'authentification
     const token = generateToken(user);
 
+    // Stockage du token dans la session
+    req.session.token = token;
     res.json({ token });
+
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'ERROR 500: Server Error' });
   }
-}
+};
+
+
 
 function generateToken(user) {
   const payload = {
@@ -76,6 +81,17 @@ exports.createUser = async (req, res) => {
     throw new Error(`Impossible de créer un nouvel utilisateur : ${error.message}`);
   }
 };
+
+exports.logout = (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/');
+    }
+  });
+};
+
 
 
 
