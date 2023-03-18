@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/signup.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <title>CryptoTracker | Sign Up</title>
+</head>
+<body>
+    <div class="login-link">
+        <a href="/">Login</a>
+        </div>
+    <div class="container">
+        <h1>SIGN UP!</h1>
+    <div class="form-container">
+    <form id="signup-form" method="POST" action="/auth/signup">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirmPassword" required>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+    </div>
+    </div>
+  </body>
+</html>
