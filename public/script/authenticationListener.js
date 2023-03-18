@@ -50,3 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });      
   }})
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const success = urlParams.get('success');
+  if (success === '1') {
+    // Trouvez la div pour le message de succès
+    const messageDiv = document.querySelector('#message');
+  
+    // Créez une nouvelle div pour le message de succès
+    const successDiv = document.createElement('div');
+    successDiv.classList.add('success');
+    successDiv.textContent = 'You have been successfully registered';
+  
+    // Ajoutez la div au messageDiv
+    messageDiv.appendChild(successDiv);
+  }
+  

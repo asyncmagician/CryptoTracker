@@ -32,6 +32,7 @@ app.listen(port, () => {
 app.use(express.urlencoded({ extended: true }));
 app.use(upload.array());
 app.use(express.static('public'));
+app.use(express.json())
 
 // On définis nos routes
 app.use(indexRoutes);

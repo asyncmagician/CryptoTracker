@@ -61,6 +61,14 @@
   background-color: #9b9b9b;
 }
 
+.success {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 
 
 /* img {

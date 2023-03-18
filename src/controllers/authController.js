@@ -1,6 +1,7 @@
 const User = require('../models/User.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const _ = require('lodash');
 require('dotenv').config();
 
 exports.login = async (req, res) => {
@@ -48,4 +49,33 @@ function generateToken(user) {
   const token = jwt.sign(payload,jwtSecret,options);
   return token;
 }
+
+exports.createUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    // Vérifie l'unicité de l'adresse e-mail
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      throw new Error('Cet e-mail est déjà utilisé.');
+    }
+
+    // Hash le mot de passe avant de l'enregistrer dans la base de données
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Échappe les caractères spéciaux dans l'adresse e-mail
+    const escapedEmail = _.escape(email);
+
+    // On enregistre le nouvel utilisateur dans la base de données
+    const newUser = new User({ email: escapedEmail, password: hashedPassword });
+    await newUser.save();
+
+    const token = generateToken(newUser);
+
+    res.json({ token });
+  } catch (error) {
+    throw new Error(`Impossible de créer un nouvel utilisateur : ${error.message}`);
+  }
+};
+
+
 
