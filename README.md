@@ -2,6 +2,9 @@
 
 CryptoTracker is a simple web application that allows users to track and manage their cryptocurrency holdings.
 
+## Releases
+- v1.0: Basic CRUD **(RELEASED)**
+- v2.0: Authentication *(IN PROGRESS)*
 
 ## Getting Started
 To get started with CryptoTracker, follow these steps:
