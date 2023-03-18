@@ -14,6 +14,19 @@
   width: 50%;
 }
 
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+
 h1 {
   font-size: 3rem;
   color: #000000;
