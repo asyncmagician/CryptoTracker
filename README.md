@@ -49,7 +49,7 @@ If you are unfamiliar with GPG keys or need assistance in setting up your key, p
 ## Technologies 
 - Node.js
 - Express.js
-- MongoDB Atlas
+- MongoDB
 - Mongoose
 - CoinGecko API
 - HTML
