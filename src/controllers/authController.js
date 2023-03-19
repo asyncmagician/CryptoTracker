@@ -28,6 +28,7 @@ exports.login = async (req, res) => {
 
     // Stockage du token dans la session
     req.session.token = token;
+    req.session.userId = user._id;
     res.json({ token });
 
   } catch (error) {

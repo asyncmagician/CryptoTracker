@@ -1,10 +1,11 @@
-const checkAuth = (req, res, next) => {
+const checkAuth = (redirectTo) => {
+  return (req, res, next) => {
     if (req.session && req.session.userId) {
-      res.redirect('/home');
+      res.redirect(redirectTo);
     } else {
       next();
     }
   };
-  
-  module.exports = checkAuth;
-  
+};
+
+module.exports = checkAuth;
