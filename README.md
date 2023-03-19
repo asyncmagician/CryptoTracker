@@ -4,7 +4,7 @@ CryptoTracker is a simple web application that allows users to track and manage 
 
 ## Releases
 - v1.0: CRUD **(RELEASED)**
-- v1.1: Authentication *(IN PROGRESS)*
+- v1.1: Authentication **(RELEASED)**
 
 ## Getting Started
 To get started with CryptoTracker, follow these steps:
@@ -22,11 +22,22 @@ cd CryptoTracker
 npm install
 node index.js
 ``` 
-The app should now be running at http://localhost:3000
+CryptoTracker should now be running at http://localhost:3000
+
+### Database
+Before you can successfully run the application, you need to configure the database connection. In the `./config.js` file, you will find the following code:
+```
+const config = {
+    mongoDB: "mongodb://<YOUR_USER>:<YOUR_PASSWORD>@localhost:27017/<YOUR_DB>?authSource=<YOUR_DB>"
+};
+```
+
+This configuration is responsible for connecting the application to your MongoDB database. You might need to modify the mongoDB value to match your own database setup.
+
 
 ### Fetch the cryptocurrencies to the database
 
-Navigate to http://localhost/api/cryptos
+Navigate to http://localhost:3000/api/update
 
 ## Contributing
 If you'd like to contribute to CryptoTracker, feel free to submit a pull request. All contributions are welcome.

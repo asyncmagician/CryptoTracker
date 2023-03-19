@@ -1,5 +1,5 @@
 const config = {
-    mongoDB: "mongodb://cryptotrackeradmin:T7HRbdctOEXagDWT@localhost:27017/cryptotrackerdb?authSource=cryptotrackerdb"
+    mongoDB: "mongodb://<YOUR_USER>:<YOUR_PASSWORD>@localhost:27017/<YOUR_DB>?authSource=<YOUR_DB>"
 };
 
 module.exports = config;
