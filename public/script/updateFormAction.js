@@ -17,9 +17,13 @@ fetch(`/api/cryptos/${cryptoId}`)
 
   form.addEventListener('submit', event => {
     event.preventDefault();
+    const cryptoId = document.querySelector('#id').value;
     const name = document.querySelector('#name').value;
     const symbol = document.querySelector('#symbol').value;
+    submitForm(cryptoId, name, symbol);
+  });
   
+  function submitForm(cryptoId, name, symbol) {
     fetch(`/update/${cryptoId}`, {
       method: 'PUT',
       headers: {
@@ -41,7 +45,5 @@ fetch(`/api/cryptos/${cryptoId}`)
         console.error(error);
         alert('An error occurred while updating the cryptocurrency');
       });
-  });
-  
-  
+  }
   
