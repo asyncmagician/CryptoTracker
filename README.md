@@ -55,3 +55,14 @@ If you are unfamiliar with GPG keys or need assistance in setting up your key, p
 - HTML
 - CSS
 - JavaScript
+
+## About me
+My name is Antony Bartolomucci, a 25-year-old software engineering student passionate about technology and programming. I have dedicated countless hours to learning and refining my skills in web development since I have started in September 2021, also in data management, and user experience design. 
+
+My journey at the university has led me to start building this application.
+
+I am always eager to learn new technologies and develop innovative projects. As a software engineering student, I am constantly looking for opportunities to expand my knowledge and create meaningful applications that can make a difference in people's lives.
+
+If you have any questions, suggestions, or feedback about this project, please don't hesitate to reach out to me. I appreciate any constructive criticism and am open to collaborating with like-minded individuals in the software development community.
+
+You can follow my progress, check out my other projects, or get in touch with me through my [GitHub](http://www.github.com/csswasthebestcs) or [LinkedIn](https://www.linkedin.com/in/bartolomucci/) profiles.
