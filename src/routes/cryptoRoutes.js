@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/home', requireAuth, async (req, res) => {
     try {
       const cryptos = await cryptoController.getAllCryptos();
-      res.sendFile(path.join(__dirname, '..', '..', 'views', 'read.html'), { cryptos: cryptos });
+      res.sendFile(path.join(__dirname, '..', 'views', 'read.html'), { cryptos: cryptos });
     } catch (error) {
       console.error(error);
       res.status(500).send('Error while retrieving the datas from the database');
@@ -16,11 +16,11 @@ router.get('/home', requireAuth, async (req, res) => {
   });
 
   router.get('/create', requireAuth, (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'views', 'create.html'));
+    res.sendFile(path.join(__dirname, '..', 'views', 'create.html'));
 });
 
 router.get('/update', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'views', 'update.html'));
+  res.sendFile(path.join(__dirname, '..', 'views', 'update.html'));
 });
 
 router.get('/api/cryptos', requireAuth, cryptoController.sendAllCryptos);
