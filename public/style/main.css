@@ -21,3 +21,26 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+.logout-link {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+}
+
+.logout-link a {
+  text-decoration: none;
+  width: 100%;
+  background-color: #292828;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.logout-link a:hover {
+  background-color: #9b9b9b;
+}
